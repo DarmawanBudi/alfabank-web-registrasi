@@ -21,7 +21,8 @@ class AddForeignKeyToPendaftaransTable extends Migration
 
             $table->foreign('id_program_kursus')
                 ->references('id')
-                ->on('program_kursuses');
+                ->on('program_kursuses')
+                ->onDelete('cascade');
         });
     }
     /**
