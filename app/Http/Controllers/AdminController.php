@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function showRegister()
+    {
+        return view('register');
+    }
+
     public function cari(Request $request) {
         
         $keyword = $request->keyword;
@@ -71,11 +76,11 @@ class AdminController extends Controller
     }
 
 
-    public function update(){
-        return view('admin/admin_program_kursus_update');
-    }
+    
     public function sertifikasi(){
-        return view('admin/admin_sertifikasi');
+        $user_sertifikasi = Pendaftaran::with(['users','program_kursuses'])->where('status', '=', 'masa_studi')->paginate(5);
+
+        return view('admin/admin_sertifikasi', compact('user_sertifikasi'));
     }
 
     public function CreateUser(Request $request){

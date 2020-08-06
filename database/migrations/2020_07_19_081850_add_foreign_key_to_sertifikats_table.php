@@ -16,7 +16,8 @@ class AddForeignKeyToSertifikatsTable extends Migration
         Schema::table('sertifikats', function (Blueprint $table) {
                 $table->foreign('id_pendaftaran')
                     ->references('id')
-                    ->on('pendaftarans');
+                    ->on('pendaftarans')
+                    ->onDelete('cascade');;
         });
     }
 

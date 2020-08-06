@@ -11,6 +11,7 @@
 
         <table class="table table-striped">
             <thead>
+                
                 <tr>
                     <th>#</th>
                     <th>Nama</th>
@@ -20,19 +21,22 @@
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
+               
             </thead>
             <tbody>
+                @foreach ($user_sertifikasi as $key=>$item)
                 <tr>
-                    <th>1</th>
-                    <td>Mark</td>
-                    <td>Otto@gmail</td>
-                    <td>Jogja</td>
-                    <td>Computer science</td>
-                    <td>masa studi</td>
+                    <th>{{$user_sertifikasi->firstItem() + $key}}</th>
+                    <td>{{$item->users->nama}}</td>
+                    <td>{{$item->users->email}}</td>
+                    <td>{{$item->users->alamat}}</td>
+                    <td>{{$item->program_kursuses->nama}}</td>
+                    <td>{{$item->status}}</td>
                     <td>
                         <button class="btn btn-sm btn-info">lulus</button>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
 

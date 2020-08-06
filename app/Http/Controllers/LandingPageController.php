@@ -68,8 +68,5 @@ class LandingPageController extends Controller
         ));
     }
 
-    public function showRegister()
-    {
-        return view('register');
-    }
+    
 }

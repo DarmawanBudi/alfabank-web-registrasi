@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // - path (/ , /register)
 // - callback function
 Route::get('/','LandingPageController@index');
-Route::get('/register','LandingPageController@showRegister');
+Route::get('/admin_register','AdminController@showRegister');
 Route::get('/admin_dashboard','AdminController@dashboard');
 Route::get('/admin_detail_siswa/{id}','AdminController@detail');
 Route::get('/admin_inbox','InboxController@inbox');
@@ -50,7 +50,10 @@ Route::get('/admin_program_kursus','ProgramKursusController@kursus');
 //untuk menangani create
 Route::post('/admin_program_kursus/create','ProgramKursusController@createkursus');
 
-Route::get('/admin_program_kursus_update','AdminController@update');
+Route::get('/admin_program_kursus_edit/{id}','ProgramKursusController@edit')->name('programkursus.edit');
+Route::put('/admin_program_kursus_update/{id}','ProgramKursusController@update')->name('programkursus.update');
+Route::delete('/admin_program_kursus/destroy{id}','ProgramKursusController@destroy')->name('programkursus.destroy');
+
 Route::get('/admin_sertifikasi','AdminController@sertifikasi');
 
 

@@ -16,7 +16,8 @@ class AddForeignKeyToBlogsTable extends Migration
         Schema::table('blogs', function (Blueprint $table) {
             $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');;
         });
     }
 

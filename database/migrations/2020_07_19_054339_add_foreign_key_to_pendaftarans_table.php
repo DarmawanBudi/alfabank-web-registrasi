@@ -16,7 +16,8 @@ class AddForeignKeyToPendaftaransTable extends Migration
         Schema::table('pendaftarans', function (Blueprint $table) {
             $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreign('id_program_kursus')
                 ->references('id')

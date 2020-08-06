@@ -63,13 +63,18 @@
                         <th>{{$index = $index +1}}</th>
                         <td>{{$element->nama}}</td>
                         <td>{{$element->masa_studi}} bulan</td>
-                        <td>Rp {{$element->harga}}.000,00</td>
+                        <td>Rp {{$element->harga}}.000.000,00</td>
                         <td>{{$element->kuota}}</td>
                         
                         <td>
-                            <a href="kursus-update" class="btn btn-sm btn-info">ubah</a>
-                            <a href="#" class="btn btn-sm btn-danger">hapus</a>
-                        </td>
+                            <a href="{{route('programkursus.edit', $element->id)}}" class="btn btn-sm btn-info">edit</a>
+                            <form action="{{route('programkursus.destroy', $element->id)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" name="" id="" class="btn btn-sm btn-danger" value="hapus">
+                                
+                            </form>
+                    </td>
                     </tr>
                 @endforeach
                     
